@@ -105,7 +105,7 @@
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="44" id="xMS-ro-JvK"/>
                                                     </constraints>
-                                                    <buttonConfiguration key="configuration" style="gray" title="Check"/>
+                                                    <buttonConfiguration key="configuration" style="gray" title="Go"/>
                                                     <connections>
                                                         <segue destination="wdS-0f-gaK" kind="show" destinationCreationSelector="goApod:sender:" id="paV-4n-6qQ"/>
                                                     </connections>
