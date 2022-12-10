@@ -13,6 +13,9 @@
 		C72AD0FB2944C4B5004090F9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C72AD0F92944C4B5004090F9 /* Main.storyboard */; };
 		C72AD0FD2944C4B7004090F9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C72AD0FC2944C4B7004090F9 /* Assets.xcassets */; };
 		C72AD1002944C4B7004090F9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C72AD0FE2944C4B7004090F9 /* LaunchScreen.storyboard */; };
+		C72AD10A2944C5A9004090F9 /* PhotoInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = C72AD1092944C5A9004090F9 /* PhotoInfo.swift */; };
+		C72AD10C2944C5BA004090F9 /* PhotoInfoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C72AD10B2944C5BA004090F9 /* PhotoInfoController.swift */; };
+		C72AD10E2944D37F004090F9 /* PickDateTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C72AD10D2944D37F004090F9 /* PickDateTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +27,9 @@
 		C72AD0FC2944C4B7004090F9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C72AD0FF2944C4B7004090F9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C72AD1012944C4B7004090F9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C72AD1092944C5A9004090F9 /* PhotoInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoInfo.swift; sourceTree = "<group>"; };
+		C72AD10B2944C5BA004090F9 /* PhotoInfoController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoInfoController.swift; sourceTree = "<group>"; };
+		C72AD10D2944D37F004090F9 /* PickDateTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickDateTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +69,9 @@
 				C72AD0FC2944C4B7004090F9 /* Assets.xcassets */,
 				C72AD0FE2944C4B7004090F9 /* LaunchScreen.storyboard */,
 				C72AD1012944C4B7004090F9 /* Info.plist */,
+				C72AD1092944C5A9004090F9 /* PhotoInfo.swift */,
+				C72AD10B2944C5BA004090F9 /* PhotoInfoController.swift */,
+				C72AD10D2944D37F004090F9 /* PickDateTableViewController.swift */,
 			);
 			path = APOD;
 			sourceTree = "<group>";
@@ -138,6 +147,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C72AD10E2944D37F004090F9 /* PickDateTableViewController.swift in Sources */,
+				C72AD10A2944C5A9004090F9 /* PhotoInfo.swift in Sources */,
+				C72AD10C2944C5BA004090F9 /* PhotoInfoController.swift in Sources */,
 				C72AD0F82944C4B5004090F9 /* ViewController.swift in Sources */,
 				C72AD0F42944C4B5004090F9 /* AppDelegate.swift in Sources */,
 				C72AD0F62944C4B5004090F9 /* SceneDelegate.swift in Sources */,
