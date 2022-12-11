@@ -126,8 +126,12 @@ class ViewController: UIViewController {
         
         guard let videoUrl = mediaUrl else { return }
         
+        // This presents safari. I wrote this. This only presents an tab. Contains an button to go to safari. This is much faster.
         let safariVC = SFSafariViewController(url: videoUrl)
         present(safariVC, animated: true, completion: nil)
+        
+        // This also presents safari. This is an way given in the book. This is better animation than the other. This opens safari app itself.
+//        UIApplication.shared.open(videoUrl, options: [.eventAttribution : (Any).self], completionHandler: nil)
     }
     
     /// This function is fired when the share button is tapped.
