@@ -127,7 +127,7 @@
                             <outlet property="delegate" destination="o7b-lT-HLv" id="NB3-oD-fsX"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Spaceopedia" prompt="NASA APOD" id="5CW-vr-dV4">
+                    <navigationItem key="navigationItem" title="Spaceopedia" prompt="NASA APOD" largeTitleDisplayMode="always" id="5CW-vr-dV4">
                         <barButtonItem key="backBarButtonItem" title="Pick Date" id="2Te-n7-mm1"/>
                     </navigationItem>
                     <connections>
