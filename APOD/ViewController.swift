@@ -34,6 +34,9 @@ class ViewController: UIViewController {
     
     var urlQuery : [String:String]?
     
+    /// This is the activity indicator. The indetermenent loading view.
+    @IBOutlet weak var activityIndicatorView: UIActivityIndicatorView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -44,7 +47,11 @@ class ViewController: UIViewController {
             do
             {
                 guard let urlQuery = urlQuery else { return }
+                
+                activityIndicatorView.startAnimating()
                 let photoInfo = try await photoInfoController.fetchPhotoInfo(query: urlQuery)
+                activityIndicatorView.stopAnimating()
+                
                 updateUI(with: photoInfo)
             }
             catch
@@ -59,9 +66,10 @@ class ViewController: UIViewController {
     func initialViewUpdate()
     {
         navigationItem.title = "Fetching Photo Info..."
-        photoImageView.image = UIImage(systemName: "photo.on.rectangle")
         descriptionTextView.text = ""
         copyrightLabel.text = ""
+        isPhotoInfoFetched = false
+        videoSafariButton.isHidden = true
     }
     
     /// This function is used to update the view with the instance of PhotoInfo.
@@ -76,11 +84,13 @@ class ViewController: UIViewController {
             {
                 if photoInfo.mediaType == "image"
                 {
+                    activityIndicatorView.startAnimating()
                     photoImageView.image = try await photoInfoController.fetchPhotoImage(imageUrl: photoInfo.url)
+                    activityIndicatorView.stopAnimating()
                 }
                 else if photoInfo.mediaType == "video"
                 {
-                    photoImageView.image = UIImage(systemName: "play.square.fill")?.withTintColor(.systemGray, renderingMode: .alwaysOriginal)
+                    videoSafariButton.isHidden = false
                     
                     // Presenting an AlertVC to let the user know that the media is an video not an image.
                     let alertVC = UIAlertController(title: "It's a Video", message: "Click the play button to check it out.", preferredStyle: .actionSheet)
@@ -117,36 +127,44 @@ class ViewController: UIViewController {
         copyrightLabel.text = ""
         
         isPhotoInfoFetched = false
+        activityIndicatorView.stopAnimating()
     }
     
     /// Function that is fired when the button covering the media(UIImageView) is tapped.
     @IBAction func videoSafariButtonTapped(_ sender: UIButton)
     {
-        print("Button Tapped")
-        
         guard let videoUrl = mediaUrl else { return }
         
-        // This presents safari. I wrote this. This only presents an tab. Contains an button to go to safari. This is much faster.
+        // This presents safari. I wrote this. This only presents an tab. Contains an button to go to safari. This is much faster than opening safari itself with this UIApplication.shared.open(url: URL, options: [String : Any], completionHandler: ((Bool) -> Void)?) method.
         let safariVC = SFSafariViewController(url: videoUrl)
         present(safariVC, animated: true, completion: nil)
-        
-        // This also presents safari. This is an way given in the book. This is better animation than the other. This opens safari app itself.
-//        UIApplication.shared.open(videoUrl, options: [.eventAttribution : (Any).self], completionHandler: nil)
     }
     
     /// This function is fired when the share button is tapped.
+    /// This function will only be firs when the button is enabled.
     @IBAction func shareButtonTapped(_ sender: UIBarButtonItem)
     {
-        guard let media = photoImageView.image, let description = descriptionTextView.text else { return }
+        // If mediaUrl is nil then it means there is no media to share so just return. Unwrapping description too.
+        guard let mediaUrl = mediaUrl, let description = descriptionTextView.text else { return }
+
+        var activityItems : [Any]
+        if let mediaImage = photoImageView.image
+        {
+            activityItems = [mediaImage, description]
+        }
+        else
+        {
+            // This means it's an video, so we'll share the url of the video.
+            activityItems = [mediaUrl, description]
+        }
         
-        var activityItems : [Any] = [media, description]
         if let copyright = copyrightLabel.text
         {
             // This means that copyright is present so we'll append it also to the activityItems. We need to share that too.
             activityItems.append(copyright)
         }
         
-        let activityVC = UIActivityViewController(activityItems: [media, description], applicationActivities: nil)
+        let activityVC = UIActivityViewController(activityItems: activityItems, applicationActivities: nil)
         present(activityVC, animated: true, completion: nil)
     }
 }
