@@ -4,12 +4,12 @@
  
 ## DEMO
  
-#### Multiple Apods
+### Multiple Apods
  - You can share those pictures too along with those descriptions.
 
 https://user-images.githubusercontent.com/67138194/206869142-cd0a85c5-684c-4570-a569-55ee7180a890.mov
 
-#### Videos too.
+### Videos too.
  - Nasa sometimes puts videos instead of pictures, even though it's called Astronomical Picture Of The Day.
  - No worries this app handles that too.
 
