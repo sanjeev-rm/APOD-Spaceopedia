@@ -53,7 +53,7 @@ class PickDateTableViewController: UITableViewController
         let date = datePicker.date.description.prefix(10)
         
         // Setting the urlQuery property of the apodVC instance.
-        apodVC?.urlQuery = ["api_key":"jXaZm8mO1NgcDmjlqJjZWRcLgL2iF66sEAgWMUHd", "date":"\(date)"]
+        apodVC?.urlQuery = ["api_key":"DEMO_KEY", "date":"\(date)"]
         
         // Returning the instance apodVC. This will be presented.
         return apodVC
